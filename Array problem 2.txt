@@ -1,0 +1,22 @@
+#!/bin/bash
+
+for (( i=0; i<10; i++ ))
+do
+  numbers[i]=$((RANDOM%900+100))
+done
+echo "Unsorted Numbers: ${numbers[@]}"
+sorted_numbers=($(printf '%s\n' "${numbers[@]}" | sort -n))
+echo "Sorted Numbers: ${sorted_numbers[@]}"
+second_largest=${sorted_numbers[-2]}
+echo "Second Largest Number: $second_largest"
+second_smallest=${sorted_numbers[1]}
+echo "Second Smallest Number: $second_smallest"
+
+
+
+Output:
+
+Unsorted Numbers: 247 678 115 276 210 327 121 526 271 962
+Sorted Numbers: 115 121 210 247 271 276 327 526 678 962
+Second Largest Number: 678
+Second Smallest Number: 121
